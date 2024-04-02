@@ -1,0 +1,110 @@
+.list-container{
+  border: 1px solid ;
+  border-radius: 10px;
+  height: 500px;
+  width: 500px;
+  padding: 10px;
+  overflow-y: scroll;
+
+  .list-line{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    img{
+      width: 50px;
+      border-radius: 10px;
+    }
+    
+    
+  }
+  .list-line:hover{
+    background-color: aliceblue;
+  }
+  .list-line, input {
+    cursor: pointer;
+  }
+}
+
+.input-wrapper{
+  display: flex;
+  align-items: center;
+  width: 500px;
+  height: fit-content;
+  gap: 10px;
+  border: 1px solid ;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+
+  input{
+    outline: none;
+    border: none;
+  }
+  input::placeholder{
+    opacity: 0.5;
+    font-size: 12px;
+  }
+
+.tag-group{
+  display: flex;
+  height: auto;
+  flex-wrap: wrap;
+  gap: 5px;
+  input{
+    margin: 2px 0px;
+  }
+  
+}
+  
+.tag{
+  padding: 4px 5px;
+  display: flex;
+  gap: 10px;
+  background-color: rgb(216, 221, 233);
+  border-radius: 10px;
+  align-items: center;
+  font-size: 13px;
+}
+.tag:hover{
+  background-color: rgb(197, 200, 211);
+
+}
+
+  .x-icon{
+  width: 20px;
+  height: 18px;
+  opacity: 0.3;
+  position: relative;
+  background-color: navy;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+
+  }
+  
+  .x-icon::after,.x-icon::before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    background-color: white;
+    width: 60%;
+    top: 45%;
+    left: 20%;
+
+  }
+ 
+  .x-icon::before{
+    transform: rotate(-45deg);
+  }
+ 
+  .x-icon::after{
+    transform: rotate(45deg);
+  }
+  
+   .x-icon:hover{
+     opacity: 1;
+   }
+ 
+
+}
