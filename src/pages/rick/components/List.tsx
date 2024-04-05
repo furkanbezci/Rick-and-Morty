@@ -37,7 +37,7 @@ const List = ({
           readOnly
         />
         <div>
-          <img src={item.image} alt="" />
+          <img className="image" src={item.image} alt="" />
         </div>
         <div>
           {getHighlightedText(item.name, value)}

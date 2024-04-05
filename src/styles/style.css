@@ -15,8 +15,8 @@
     align-items: center;
     gap: 10px;
     margin-bottom: 10px;
-    img{
-      width: 50px;
+    .image{
+      width: 50px ;
       border-radius: 10px;
     }
     
