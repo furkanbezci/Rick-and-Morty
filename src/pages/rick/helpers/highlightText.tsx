@@ -1,9 +1,9 @@
-export function getHighlightedText(text: any, highlight: any) {
+export function getHighlightedText(text: string, highlight: string) {
   const parts = text.split(new RegExp(`(${highlight})`, "gi"));
   return (
     <span>
       {" "}
-      {parts.map((part: any, i: any) => (
+      {parts.map((part: string, i: number) => (
         <span
           key={i}
           style={
