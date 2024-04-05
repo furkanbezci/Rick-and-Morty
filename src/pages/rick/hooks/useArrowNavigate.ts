@@ -14,7 +14,7 @@ const useArrowNavigate = ({ listData, searchBarListData }: ArrowNavigateProps) =
 
         const currentIndex = elements.findIndex((element: HTMLElement) => element === document.activeElement);
         const isFocusedOnInput = document.activeElement === document.querySelector('input')
-        
+
         if (!isFocusedOnInput) {
             if (["ArrowRight", "ArrowDown"].includes(event.key)) {
                 const nextIndex = (currentIndex + 1) % elements.length;

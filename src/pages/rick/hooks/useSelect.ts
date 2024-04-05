@@ -3,7 +3,7 @@ import { useState } from "react";
 const useSelect = () => {
   const [searchBarListData, setSearchBarListData] = useState([]);
 
-  const onSelectItem = (selectedItemName: string, ) => {
+  const onSelectItem = (selectedItemName: string,) => {
     let newArr: any = [...searchBarListData];
     const isDuplicate = newArr.includes(selectedItemName);
 
@@ -22,15 +22,15 @@ const useSelect = () => {
     setSearchBarListData(newArr);
   };
 
-  const handleKeyDown =(e:React.KeyboardEvent<HTMLDivElement>,item:string)=>{
-    if(e.key === "Enter"){
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>, item: string) => {
+    if (e.key === "Enter") {
       onSelectItem(item)
     }
-    if(e.key === "Backspace"){ 
+    if (e.key === "Backspace") {
       deleteItem(item)
     }
-  } 
-  
+  }
+
   return {
     onSelectItem,
     deleteItem,

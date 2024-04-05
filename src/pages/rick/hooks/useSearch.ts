@@ -11,10 +11,9 @@ const useSearch = () => {
   const handleChange = (e: any) => {
     setSearchTerm(e.target.value);
   };
-  
+
 
   useEffect(() => {
-    console.log("kll")
     const timeOut = setTimeout(() => {
       getCharacters({
         variables: {
@@ -28,13 +27,13 @@ const useSearch = () => {
     }, delay);
     return () => clearTimeout(timeOut);
   }, [searchTerm, delay]);
-  
+
 
   const searchInputProps = {
     value: searchTerm,
     onChange: handleChange,
   };
 
-  return { searchInputProps, listData , queryResult:{loading,error},};
+  return { searchInputProps, listData, queryResult: { loading, error }, };
 };
 export default useSearch;

@@ -15,38 +15,38 @@ const List = ({
   searchBarListData,
   searchInputProps,
   handleKeyDown
-}: ListProps) =>  {
+}: ListProps) => {
 
   const { value } = searchInputProps;
- 
 
-const  renderListItem =()=>{
 
-      return listData?.map((item: ItemType, index: number) => (
-        <div
-          key={index}
-          className="list-line"
-          onClick={() => onSelectItem(item.name)}
-          onKeyDown={(e)=>handleKeyDown(e,item.name)}
-          tabIndex={0}
-        >
-          <input
-            type="checkbox"
-            checked={searchBarListData.includes(item.name)}
-            tabIndex={-1}
-            readOnly
-          />
-          <div>
-            <img src={item.image} alt="" />
-          </div>
-          <div>
-            {getHighlightedText(item.name, value)}
-            <div>{item.episode.length + " Episode"}</div>
-          </div>
+  const renderListItem = () => {
+
+    return listData?.map((item: ItemType, index: number) => (
+      <div
+        key={index}
+        className="list-line"
+        onClick={() => onSelectItem(item.name)}
+        onKeyDown={(e) => handleKeyDown(e, item.name)}
+        tabIndex={0}
+      >
+        <input
+          type="checkbox"
+          checked={searchBarListData.includes(item.name)}
+          tabIndex={-1}
+          readOnly
+        />
+        <div>
+          <img src={item.image} alt="" />
         </div>
-      ))
-}
- 
+        <div>
+          {getHighlightedText(item.name, value)}
+          <div>{item.episode.length + " Episode"}</div>
+        </div>
+      </div>
+    ))
+  }
+
 
   return (
     <div className="list-container" >

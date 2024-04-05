@@ -7,9 +7,9 @@ import useArrowNavigate from "./hooks/useArrowNavigate";
 export const Main = () => {
 
   const { listData, searchInputProps, queryResult } = useSearch();
-  const {  onSelectItem, deleteItem ,searchBarListData, handleKeyDown, } = useSelect();
+  const { onSelectItem, deleteItem, searchBarListData, handleKeyDown, } = useSelect();
 
-  useArrowNavigate({listData ,searchBarListData})
+  useArrowNavigate({ listData, searchBarListData })
   const { loading, error } = queryResult;
 
 
