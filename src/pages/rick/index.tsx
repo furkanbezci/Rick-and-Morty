@@ -2,19 +2,23 @@ import List from "./components/List";
 import SearchBar from "./components/SearchBar";
 import useSearch from "./hooks/useSearch";
 import useSelect from "./hooks/useSelect";
+import useArrowNavigate from "./hooks/useArrowNavigate";
 
 export const Main = () => {
 
   const { listData, searchInputProps, queryResult } = useSearch();
-  const {  onSelectItem, deleteItem ,updatedListData, handleKeyDown, } = useSelect();
+  const { onSelectItem, deleteItem, searchBarListData, handleKeyDown, } = useSelect();
+
+  useArrowNavigate({ listData, searchBarListData })
   const { loading, error } = queryResult;
 
+
   return (
-    <div style={{ padding: 10 }}>
+    <div className="main-container">
       <SearchBar
         searchInputProps={searchInputProps}
         deleteItem={deleteItem}
-        updatedListData={updatedListData}
+        searchBarListData={searchBarListData}
         handleKeyDown={handleKeyDown}
       />
       {loading && <div> Loading...</div>}
@@ -24,7 +28,7 @@ export const Main = () => {
         <List
           listData={listData}
           onSelectItem={onSelectItem}
-          updatedListData={updatedListData}
+          searchBarListData={searchBarListData}
           searchInputProps={searchInputProps}
           handleKeyDown={handleKeyDown}
         />

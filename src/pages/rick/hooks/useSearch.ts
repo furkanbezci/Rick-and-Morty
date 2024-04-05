@@ -11,7 +11,7 @@ const useSearch = () => {
   const handleChange = (e: any) => {
     setSearchTerm(e.target.value);
   };
-  
+
 
   useEffect(() => {
     const timeOut = setTimeout(() => {
@@ -27,13 +27,13 @@ const useSearch = () => {
     }, delay);
     return () => clearTimeout(timeOut);
   }, [searchTerm, delay]);
-  
+
 
   const searchInputProps = {
     value: searchTerm,
     onChange: handleChange,
   };
 
-  return { searchInputProps, listData , queryResult:{loading,error},};
+  return { searchInputProps, listData, queryResult: { loading, error }, };
 };
 export default useSearch;
