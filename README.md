@@ -1,1 +1,1 @@
-Live : https://furkanbezci.github.io/Rick-and-Morty/
+Live : https://furkanbezci.github.io/rick-and-morty/
