@@ -14,6 +14,7 @@ const useSearch = () => {
   
 
   useEffect(() => {
+    console.log("kll")
     const timeOut = setTimeout(() => {
       getCharacters({
         variables: {

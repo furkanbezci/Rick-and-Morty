@@ -1,9 +1,10 @@
 import { ItemType, SearchInputPropsType } from "../../../types/common";
+import { getHighlightedText } from "../helpers/highlightText";
 
 interface ListProps {
   listData: ItemType[];
   onSelectItem: (name: string) => void;
-  updatedListData: string[];
+  searchBarListData: string[];
   searchInputProps: SearchInputPropsType;
   handleKeyDown: (e: React.KeyboardEvent<HTMLDivElement>, name: string) => void
 }
@@ -11,37 +12,17 @@ interface ListProps {
 const List = ({
   listData,
   onSelectItem,
-  updatedListData,
+  searchBarListData,
   searchInputProps,
   handleKeyDown
-}: ListProps) => {
+}: ListProps) =>  {
 
   const { value } = searchInputProps;
+ 
 
-  function getHighlightedText(text: any, highlight: any) {
-    const parts = text.split(new RegExp(`(${highlight})`, "gi"));
-    return (
-      <span>
-        {" "}
-        {parts.map((part: any, i: any) => (
-          <span
-            key={i}
-            style={
-              part.toLowerCase() === highlight.toLowerCase()
-                ? { fontWeight: "bold" }
-                : {}
-            }
-          >
-            {part}
-          </span>
-        ))}{" "}
-      </span>
-    );
-  }
+const  renderListItem =()=>{
 
-  return (
-    <div className="list-container">
-      {listData?.map((item: ItemType, index: number) => (
+      return listData?.map((item: ItemType, index: number) => (
         <div
           key={index}
           className="list-line"
@@ -51,18 +32,25 @@ const List = ({
         >
           <input
             type="checkbox"
-            checked={updatedListData.includes(item.name)}
+            checked={searchBarListData.includes(item.name)}
             tabIndex={-1}
+            readOnly
           />
           <div>
-            <img src={item.image} />
+            <img src={item.image} alt="" />
           </div>
           <div>
             {getHighlightedText(item.name, value)}
             <div>{item.episode.length + " Episode"}</div>
           </div>
         </div>
-      ))}
+      ))
+}
+ 
+
+  return (
+    <div className="list-container" >
+      {renderListItem()}
     </div>
   );
 };
