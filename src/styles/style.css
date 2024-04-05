@@ -67,9 +67,9 @@
   display: flex;
   gap: 10px;
   background-color: rgb(216, 221, 233);
-  border-radius: 10px;
   align-items: center;
   font-size: 13px;
+  border-radius: 8px;
 }
 .tag:hover{
   background-color: rgb(197, 200, 211);
