@@ -37,7 +37,6 @@ const useArrowNavigate = ({ listData, searchBarListData }: ArrowNavigateProps) =
         }
     }, [listData, searchBarListData])
 
-
     useEffect(() => {
         const handleKey = (event: KeyboardEvent) => {
             if ((["ArrowDown", "ArrowUp"].includes(event.key))){
@@ -48,7 +47,5 @@ const useArrowNavigate = ({ listData, searchBarListData }: ArrowNavigateProps) =
         document.addEventListener('keydown', handleKey)
         return () => { document.removeEventListener('keydown', handleKey) }
     }, [elements])
-
-
 }
 export default useArrowNavigate
