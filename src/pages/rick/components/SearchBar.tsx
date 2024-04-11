@@ -21,7 +21,7 @@ const SearchBar = ({
 
         {searchBarListData?.map((item, index) => (
 
-          item ? <div key={index} className="tag" onClick={() => deleteItem(item)} tabIndex={0} onKeyDown={(e) => handleKeyDown(e, item)}  >
+          item ? <div key={"key" + index} className="tag" onClick={() => deleteItem(item)} tabIndex={0} onKeyDown={(e) => handleKeyDown(e, item)}  >
             {item}
             <button className="x-icon" tabIndex={-1} />
           </div> : null)

@@ -5,7 +5,7 @@ export function getHighlightedText(text: string, highlight: string) {
       {" "}
       {parts.map((part: string, i: number) => (
         <span
-          key={i}
+          key={"key"+i}
           style={
             part.toLowerCase() === highlight.toLowerCase()
               ? { fontWeight: "bold" }
