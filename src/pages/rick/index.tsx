@@ -5,7 +5,6 @@ import useSelect from "./hooks/useSelect";
 import useArrowNavigate from "./hooks/useArrowNavigate";
 
 export const Main = () => {
-
   const { listData, searchInputProps, queryResult } = useSearch();
   const { onSelectItem, deleteItem, searchBarListData, handleKeyDown, } = useSelect();
 

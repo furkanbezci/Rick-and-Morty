@@ -13,16 +13,19 @@ const useArrowNavigate = ({ listData, searchBarListData }: ArrowNavigateProps) =
     const dispatchKeyEvent = (event: KeyboardEvent) => {
 
         const currentIndex = elements.findIndex((element: HTMLElement) => element === document.activeElement);
-        const isFocusedOnInput = document.activeElement === document.querySelector('input')
+        const isFocusedOnInput = document.activeElement !== document.querySelector('input')
 
-        if (!isFocusedOnInput) {
+        const focusMatchedElement =(value : number)=>{
+                const selectedElementIndex = currentIndex + value % elements.length
+                elements[selectedElementIndex]?.focus
+        }
+
+        if (isFocusedOnInput) {
             if (["ArrowRight", "ArrowDown"].includes(event.key)) {
-                const nextIndex = (currentIndex + 1) % elements.length;
-                elements[nextIndex]?.focus();
+                focusMatchedElement(1)
             }
             if (["ArrowLeft", "ArrowUp"].includes(event.key)) {
-                const prevIndex = (currentIndex - 1) % elements.length;
-                elements[prevIndex]?.focus();
+                focusMatchedElement(-1)
             }
         }
     }
@@ -34,17 +37,15 @@ const useArrowNavigate = ({ listData, searchBarListData }: ArrowNavigateProps) =
         }
     }, [listData, searchBarListData])
 
-
     useEffect(() => {
         const handleKey = (event: KeyboardEvent) => {
-            if ((["ArrowDown", "ArrowUp"].includes(event.key)))
+            if ((["ArrowDown", "ArrowUp"].includes(event.key))){
                 event.preventDefault()
+            }
             dispatchKeyEvent(event,)
         }
         document.addEventListener('keydown', handleKey)
         return () => { document.removeEventListener('keydown', handleKey) }
     }, [elements])
-
-
 }
 export default useArrowNavigate

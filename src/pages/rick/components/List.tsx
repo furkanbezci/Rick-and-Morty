@@ -24,7 +24,7 @@ const List = ({
 
     return listData?.map((item: ItemType, index: number) => (
       <div
-        key={index}
+        key={"key" + index}
         className="list-line"
         onClick={() => onSelectItem(item.name)}
         onKeyDown={(e) => handleKeyDown(e, item.name)}
