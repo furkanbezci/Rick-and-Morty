@@ -16,8 +16,8 @@ const useArrowNavigate = ({ listData, searchBarListData }: ArrowNavigateProps) =
         const isFocusedOnInput = document.activeElement === document.querySelector('input')
 
         const focusMatchedElement =(value : number)=>{
-                const selectedElementIndex = currentIndex + value % elements.length
-                elements[selectedElementIndex]?.focus
+                const selectedElementIndex = (currentIndex + value) % elements.length
+                elements[selectedElementIndex]?.focus()
         }
 
         if (!isFocusedOnInput) {
