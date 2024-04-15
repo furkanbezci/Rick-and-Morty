@@ -13,14 +13,14 @@ const useArrowNavigate = ({ listData, searchBarListData }: ArrowNavigateProps) =
     const dispatchKeyEvent = (event: KeyboardEvent) => {
 
         const currentIndex = elements.findIndex((element: HTMLElement) => element === document.activeElement);
-        const isFocusedOnInput = document.activeElement !== document.querySelector('input')
+        const isFocusedOnInput = document.activeElement === document.querySelector('input')
 
         const focusMatchedElement =(value : number)=>{
                 const selectedElementIndex = currentIndex + value % elements.length
                 elements[selectedElementIndex]?.focus
         }
 
-        if (isFocusedOnInput) {
+        if (!isFocusedOnInput) {
             if (["ArrowRight", "ArrowDown"].includes(event.key)) {
                 focusMatchedElement(1)
             }
